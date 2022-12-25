@@ -1,0 +1,22 @@
+use std::io::{self, Write};
+fn main() {
+    print!("Enter a number: ");
+    io::stdout().flush().expect("Failed to flush stdout");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let x: i32 = input.trim().parse().expect("Failed to parse input");
+    for i in 0..x{
+        for j in 1..x{     
+            if (j == 1)||(j == x-1){
+                print!("*");
+            }
+            if (j == i)&&(j != x-1){
+                print!("*");
+            }
+            else{
+                print!("-");
+            }
+        }
+        println!("");
+    }
+}
